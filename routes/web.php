@@ -13,8 +13,11 @@ use App\Http\Controllers\PostController;
 |
 */
 Route::get('/', function () { return view('welcome'); });
-
 Route::get('/', [PostController::class, 'index']);
-Route::post('/posts', [PostController::class, 'store']);
 Route::get('/posts/create', [PostController::class, 'create']);
 Route::get('/posts/{post}', [PostController::class, 'show']);
+Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+
+Route::post('/posts', [PostController::class, 'store']);
+
+Route::put('/posts/{post}', [PostController::class, 'update']);
