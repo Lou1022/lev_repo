@@ -34,6 +34,7 @@
             #box{
                 padding-left: 10px;
                 padding-right: 10px;
+                display: inline-block;
             }
             body {
                 background-color: aqua;
@@ -44,13 +45,14 @@
     </head>
     <body>
         <header>
-            <h1 class = one>Blog Name</h1>
-            <div class = two>
-                <h5 id = box>Home</h5>
+            <h1 class = "one">Blog Name</h1>
+            <div class = "two">
+                <h5 id = "box"><a href="/">Home</a></h5>
+                <h5 id = "box"><a href='/posts/create'>Create</a></h5>
             </div>
         </header>
-            <div class = post>
-                <h5  class = three>
+            <div class = "post">
+                <h5  class = "three">
                     {{ $post->title }}
                 </h5>
                 <p1>{{ $post->body }}</p1>
