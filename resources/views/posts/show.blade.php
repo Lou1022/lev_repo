@@ -58,7 +58,10 @@
                 <p1>{{ $post->body }}</p1>
             </div>
             <div>
-                <a href="/">戻る</a>
+                <a href="/posts/{{ $post->id }}/edit">edit</a>
+            </div>
+            <div>
+                <a href="/">Back</a>
             </div>
     </body>
 </html>
