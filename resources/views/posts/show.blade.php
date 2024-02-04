@@ -5,8 +5,9 @@
         <title>MyBlog</title>
         <style>
             .post{
+                padding-bottom: 30px;
                 width: 65%;
-                height: 400px;
+                height: auto;
                 margin: 5px;
                 align-self: center;
                 border: 2px solid black;
@@ -48,18 +49,14 @@
                 <h5 id = box>Home</h5>
             </div>
         </header>
-        <div>
-            @foreach ($posts as $post)
-                <div class = post>
-                    <a href="/posts/{{ $post->id }}">
-                        <h5  class = three>{{ $post->title }}</h5>
-                    </a>
-                    <p1>{{ $post->body }}</p1>
-                </div>
-            @endforeach
-        </div>
-        <div class='paginate'>
-            {{ $posts->links() }}
-        </div>
+            <div class = post>
+                <h5  class = three>
+                    {{ $post->title }}
+                </h5>
+                <p1>{{ $post->body }}</p1>
+            </div>
+            <div>
+                <a href="/">戻る</a>
+            </div>
     </body>
 </html>
