@@ -26,7 +26,7 @@
             .toback{
                 padding: 2%;
                 padding-left: 0;
-            }    
+            }
             #box{
                 padding-left: 10px;
                 padding-right: 10px;
@@ -52,7 +52,7 @@
             @method('PUT')
             <div>
                 <h5 class="three">Title</h5>
-                <input tyoe="text" name="post[title]" value="{{ $post->title }}" />
+                <input type="text" name="post[title]" value="{{ $post->title }}" />
                 <p style="color:red">{{ $errors->first('post.title')}}</p>
             </div>
             <div>
@@ -60,7 +60,7 @@
                 <textarea name="post[body]" cols="100" rows="50">{{ $post->body }}</textarea>
                 <p style="color:red">{{ $errors->first('post.body')}}</p>
             </div>
-            <input type="submit" value="保存" />            
+            <input type="submit" value="保存" />
         </form>
         <div class="toback">
             <a href="/">Back</a>
