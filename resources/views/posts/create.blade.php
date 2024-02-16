@@ -59,6 +59,14 @@
                 <textarea name="post[body]" placeholder="？お疲れさまでした" value="{{ old('post.body') }}" cols="100" rows="50"></textarea>
                 <p style="color:red">{{ $errors->first('post.body')}}</p>
             </div>
+            <div class="category">
+                <h5>Category</h5>
+                <select name="post[category_id]">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <input type="submit" value="保存" />            
         </form>
         <div class="toback">
