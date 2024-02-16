@@ -5,9 +5,8 @@
         <title>MyBlog</title>
         <style>
             .post{
-                padding-bottom: 30px;
                 width: 65%;
-                height: auto;
+                height: 400px;
                 margin: 5px;
                 align-self: center;
                 border: 2px solid black;
@@ -26,6 +25,7 @@
                 border-top: 3px solid black;
                 border-bottom: 3px solid black;
                 margin: 5px;
+                align: center;
             }
             .three {
                 margin: 0%;
@@ -51,18 +51,33 @@
                 <h5 id = "box"><a href='/posts/create'>Create</a></h5>
             </div>
         </header>
-            <div class = "post">
-                <h5  class = "three">
-                    {{ $post->title }}
-                </h5>
-                <p1>{{ $post->body }}</p1>
-            </div>
-            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
-            <div>
-                <a href="/posts/{{ $post->id }}/edit">edit</a>
-            </div>
-            <div>
-                <a href="/">Back</a>
-            </div>
+        <div>
+            @foreach ($posts as $post)
+                <div class = "post">
+                    <a href="/posts/{{ $post->id }}">
+                        <h5  class = three>{{ $post->title }}</h5>
+                    </a>
+                    <p1>{{ $post->body }}</p1>
+                </div>
+                <a href="">{{ $post->category->name }}</a>
+                <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deletePost({{ $post->id }})">delete</button>
+                </form>
+            @endforeach
+        </div>
+        <div class='paginate'>
+            {{ $posts->links() }}
+        </div>
+        <script>
+            function deletePost(id) {
+                'use strict'
+                
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
     </body>
 </html>
