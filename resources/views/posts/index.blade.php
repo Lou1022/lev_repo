@@ -70,6 +70,9 @@
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
+        <footer>
+            <a>User Name: {{ Auth::user()->name }}</a>
+        </footer>
         <script>
             function deletePost(id) {
                 'use strict'
